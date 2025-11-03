@@ -1,0 +1,30 @@
+.Title_Scoreboard { 
+    text-align: center;
+    
+}
+
+.Main_Scoreboard{ 
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+   position: relative;
+}
+
+.group-name{ 
+    font-weight: bold; 
+    font-size: 1.2em;
+}
+
+.group_controls{ 
+    float: right;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+
+
+.Add_Groups { 
+    text-align: center;
+}
