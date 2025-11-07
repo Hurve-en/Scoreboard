@@ -42,7 +42,7 @@ function savestate(state) {
     console.error('Failed to save current state', e);
   }
 }
-
+// test
 
 // Reads the current state from the DOM structure and converts it to a savable object
 function readStateFromDOM() 
