@@ -3,8 +3,20 @@ const newGroupButton = document.querySelector('.New_Group');
 
 const scoreboardContainer = document.getElementById('scoreboard');
 // Counts how many groups currently exists
-let groupCount = 1; 
+let groupCount = 0; 
 
+
+// keeps track of how many groups are there based on existing DOM or saved state
+if(window.readStateFromDOM){
+    const s = window.readStateFromDOM(); 
+    if(s && typeof s.nextId === 'number') groupCount = Math.max(groupCount, s.nextId - 1);
+}
+
+const state = window.readStateFromDOM ? window.readStateFromDOM():null; 
+
+
+
+// Adds a new group when the button is clicked 
 
 newGroupButton.addEventListener('click', function() { 
 
@@ -13,7 +25,7 @@ newGroupButton.addEventListener('click', function() {
 
     const newGroupHTML = `
     <div class="group_row" id="group-${groupCount}" data-group="${groupCount}">
-        <div class="group-name">Group-${groupCount}</div>
+        <p class="group-name" contenteditable="true">Group Name</p>
 
         <div class="group-score">
 
@@ -28,5 +40,12 @@ newGroupButton.addEventListener('click', function() {
         </div>
     `;
 
-    scoreboardContainer.insertAdjacentHTML('beforeend', newGroupHTML);
+        // insert into the #groups container if present (rendered dynamically), otherwise fallback to scoreboard
+        const target = document.getElementById('groups') || scoreboardContainer;
+        target.insertAdjacentHTML('beforeend', newGroupHTML);
+
+        // persist the new group
+        if (window.readStateFromDOM && window.savestate) {
+            window.savestate(window.readStateFromDOM());
+        }
 });

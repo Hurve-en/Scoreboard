@@ -14,42 +14,33 @@
   <main id="app">
 
     <!-- Title and short description -->
-    <head>
-        <h1 class = "Title_Scoreboard">Event Scoreboard</h1>
-    </head>
+  <header>
+    <h1 class="Title_Scoreboard">Scoreboard</h1>
+  </header>
 
     <!-- Main scoreboard section -->
     <section class = "Main_Scoreboard" id="scoreboard">
       
-      <!-- Group 1 -->
-      <div class="group_row" id="group-1" data-group="1">
-        <div class="group-name">Group 1</div>
-
-        <div class="group-score">
-
-          <span id="score-1">0</span>
-        </div>
-
-         <div class="group_controls">
-            <button type="button" class="btn-add" data-group="1">+10</button>
-            <button type="button" class="btn-minus" data-group="1">-10</button>
-            <button type="button" class="btn-reset" data-group="1">Reset</button>
-        </div>
-        </div>
-  
-
-        <!-- Controls (JS will listen to these buttons) -->
-       
+      <!-- Groups will be rendered here by JavaScript -->
+      <div id="groups"></div>
 
 
-        <!-- Add new groups -->
-         <div class = "Add_Groups"> 
-            <button type = "button" class = "New_Group">New Group</button>
-         
-          </div>
+      
 
+      <!-- Add new groups -->
+      <div class="Add_Groups">
+        <button type="button" class="New_Group">New Group</button>
+      </div>
+
+      <div class = "clear_groups">
+      <button type = "button" id = "Reset_Button">Reset Button</button>
+      </div> 
 
     </section>
+
+    
+
+
 
     <!-- Button to reset all groups at once -->
     

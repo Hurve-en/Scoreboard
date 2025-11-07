@@ -17,6 +17,20 @@
     font-size: 1.2em;
 }
 
+/* Remove default focus outline for inline editable group names and use a subtle highlight */
+.group-name:focus {
+    outline: none;
+    box-shadow: none;
+    /* optional subtle background instead of a heavy border */
+    background-color: rgba(0,0,0,0.03);
+    border-radius: 3px;
+}
+
+/* make the editable area visually similar to normal text while allowing caret */
+.group-name[contenteditable="true"] {
+    padding: 2px 4px;
+}
+
 .group_controls{ 
     float: right;
     display: flex;
