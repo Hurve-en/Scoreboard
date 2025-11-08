@@ -29,13 +29,13 @@ newGroupButton.addEventListener('click', function() {
 
         <div class="group-score">
 
-          <span id="score-${groupCount}">0</span>
+          <span id="score-${groupCount}"></span>
         </div>
 
          <div class="group_controls">
-            <button type="button" class="btn-add" data-group="${groupCount}">+10</button>
-            <button type="button" class="btn-minus" data-group="${groupCount}">-1</button>
-            <button type="button" class="btn-reset" data-group="${groupCount}">Reset</button>
+            <button type="button" class="score_btn_add" data-group="${groupCount}">+10</button>
+            <button type="button" class="score_btn_minus" data-group="${groupCount}">-10</button>
+            <button type="button" class="score_btn_reset" data-group="${groupCount}">Reset</button>
         </div>
         </div>
     `;

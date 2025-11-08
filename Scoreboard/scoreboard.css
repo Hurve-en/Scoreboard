@@ -1,3 +1,5 @@
+
+
 .Title_Scoreboard { 
     text-align: center;
     
@@ -8,37 +10,138 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #f9f9f9;
+    height: 500px;
    position: relative;
-}
-
-.group-name{ 
-    font-weight: bold; 
-    font-size: 1.2em;
-}
-
-/* Remove default focus outline for inline editable group names and use a subtle highlight */
-.group-name:focus {
-    outline: none;
-    box-shadow: none;
-    /* optional subtle background instead of a heavy border */
-    background-color: rgba(0,0,0,0.03);
-    border-radius: 3px;
-}
-
-/* make the editable area visually similar to normal text while allowing caret */
-.group-name[contenteditable="true"] {
-    padding: 2px 4px;
-}
-
-.group_controls{ 
-    float: right;
-    display: flex;
-    justify-content: flex-end;
-    position: relative;
 }
 
 
 .Add_Groups { 
     text-align: center;
 }
+
+.groups{
+    display: grid; 
+    gap: 16px; 
+    align-items: start; 
+    width: 100%; 
+    box-sizing: border-box; 
+    padding: 8px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+}
+
+
+/* Styles for card each group */ 
+
+.group_row { 
+    flex-direction: row;
+    width: 280px;
+    height: 350px; 
+    gap: 12px; 
+    padding: 12px; 
+    margin: 0; 
+    background: #fff; 
+    border-radius:10px;
+    border: 1px solid black;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.06); 
+    transition: transform .15s ease, box-shadow .15s ease; 
+    box-sizing: border-box;
+    
+
+}
+
+.group-name{ 
+    font-weight: bold; 
+    font-size: 1.2em;
+    display: flex;
+    text-align: left;
+    padding:10px;
+    display: flex;
+    margin-right: 20px; 
+    margin-bottom: 50px;
+    height: 30px;
+    width: auto;
+}
+
+.group-score{ 
+    font-size: 4em; 
+    align-items: center;
+    position: relative;
+    margin-left: 75px;
+    margin-top: 50px;
+    padding: 5px;
+    height: 100px;
+}
+
+.group-score span{
+    display: inline-block; 
+    align-items: center;
+    min-width: 5ch;
+    box-sizing: content-box;
+}
+
+
+.group_controls{ 
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    justify-content: center;
+    float: left;
+    margin-top: 50px;
+    margin-left: 10px;
+   
+}
+
+
+
+/*Buttons that are way too complicated */ 
+
+.score_btn_add, .score_btn_minus, .score_btn_reset { 
+    color: black;
+    align-items: center;
+    appearance: none;
+    background-color: #fcfcfd;
+    border-radius: 10px; 
+    border-width: 0; 
+    box-shadow:
+    rgba(45,35,66,0.2) 0 2px 4px,
+    rgba(45,35,66,0.15) 0 7px 13px -3px, 
+    #d6d6e7 0 -3px 0 inset;
+    box-sizing: border-box; 
+    color: #000000; 
+    cursor: pointer; 
+    display: inline-flex; 
+    height: 40px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative; 
+    text-align: left; 
+    text-decoration: none; 
+    transition: box-shadow 0.15s,
+    transform 0.15s; 
+    user-select: none;
+    -webkit-user-select: none; 
+    touch-action: manipulation; 
+    white-space: nowrap; 
+    will-change: box-shadow, transform; 
+    font-size: 18px; 
+}
+
+
+.score_btn_add:hover, .score_btn_minus:hover, .score_btn_reset:hover {
+  box-shadow:
+    rgba(45, 35, 66, 0.3) 0 4px 8px,
+    rgba(45, 35, 66, 0.2) 0 7px 13px -3px,
+    #d6d6e7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.score_btn_add:active, .score_btn_minus:active, .score_btn_reset:active {
+  box-shadow: #d6d6e7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+

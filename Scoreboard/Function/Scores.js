@@ -79,17 +79,17 @@ clickContainer.addEventListener('click', function(event) {
   // reads text to value
   let currentScore = Number(scoreElement.textContent) || 0;
 
-  if (button.classList.contains('btn-add')) {
+  if (button.classList.contains('score_btn_add')) {
     currentScore += 10;
     scoreElement.textContent = currentScore;
     // persist updated DOM
     savestate(readStateFromDOM());
-  } else if (button.classList.contains('btn-minus')) {
+  } else if (button.classList.contains('score_btn_minus')) {
     currentScore -= 10;
     scoreElement.textContent = currentScore;
     // persist updated DOM
     savestate(readStateFromDOM());
-  } else if (button.classList.contains('btn-reset')) {
+  } else if (button.classList.contains('score_btn_reset')) {
     scoreElement.textContent = 0;
     // persist updated DOM
     savestate(readStateFromDOM());
@@ -120,7 +120,8 @@ clickContainer.addEventListener('click', function(event) {
     input.type = 'text';
     input.className = 'group-name-input';
     input.value = nameEl.textContent.trim();
-    input.style.minWidth = '120px';
+    input.style.minWidth = '100px';
+  
 
     function commitChange() {
       const newName = input.value.trim() || `Group ${groupId || ''}`;
@@ -178,9 +179,9 @@ function renderGroups(saved) {
   <div class="group-name" contenteditable="true">${g.name}</div>
       <div class="group-score"><span id="score-${g.id}">${g.score}</span></div>
       <div class="group_controls">
-        <button type="button" class="btn-add" data-group="${g.id}">+10</button>
-        <button type="button" class="btn-minus" data-group="${g.id}">-10</button>
-        <button type="button" class="btn-reset" data-group="${g.id}">Reset</button>
+        <button type="button" class="score_btn_add" data-group="${g.id}">+10</button>
+        <button type="button" class="score_btn_minus" data-group="${g.id}">-10</button>
+        <button type="button" class="score_btn_reset" data-group="${g.id}">Reset</button>
       </div>
     </div>
   `).join('');
