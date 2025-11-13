@@ -44,6 +44,20 @@ newGroupButton.addEventListener('click', function() {
         const target = document.getElementById('groups') || scoreboardContainer;
         target.insertAdjacentHTML('beforeend', newGroupHTML);
 
+        // add a transient animation class to the newly created element so it fades/slides in
+        const newEl = document.getElementById(`group-${groupCount}`);
+        if (newEl) {
+            // add the class that triggers the CSS animation
+            newEl.classList.add('animate-enter');
+
+            // remove the class after animation completes to keep DOM clean
+            const removeClass = (ev) => {
+                newEl.classList.remove('animate-enter');
+                newEl.removeEventListener('animationend', removeClass);
+            };
+            newEl.addEventListener('animationend', removeClass);
+        }
+
         // persist the new group
         if (window.readStateFromDOM && window.savestate) {
             window.savestate(window.readStateFromDOM());

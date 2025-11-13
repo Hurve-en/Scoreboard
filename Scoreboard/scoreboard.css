@@ -8,7 +8,7 @@
 .Main_Scoreboard{ 
     margin: 20px;
     padding: 10px;
-    border: 1px solid #ccc;
+  
     border-radius: 5px;
     height: 500px;
    position: relative;
@@ -16,6 +16,7 @@
 
 
 .Add_Groups { 
+    /* center-bottom floating container will be positioned via fixed coordinates */
     text-align: center;
 }
 
@@ -49,6 +50,23 @@
 
 }
 
+/* Animation for newly created groups */
+.group_row.animate-enter {
+    /* ensure starting state (if needed) */
+    animation: fadeInUp 380ms ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.992);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
 .group-name{ 
     font-weight: bold; 
     font-size: 1.2em;
@@ -66,8 +84,8 @@
     font-size: 4em; 
     align-items: center;
     position: relative;
-    margin-left: 75px;
-    margin-top: 50px;
+    margin-left: 82px;
+    margin-top: 35px;
     padding: 5px;
     height: 100px;
 }
@@ -144,4 +162,49 @@
   box-shadow: #d6d6e7 0 3px 7px inset;
   transform: translateY(2px);
 }
+
+/* Floating controls pinned to center-bottom of viewport */
+.Button_Groups {
+    position: fixed;
+    bottom: 20px;            /* distance from bottom of viewport */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center; /* center children horizontally inside the bar */
+    gap: 12px;
+    align-items: center;
+    z-index: 1000;
+    border: black solid;
+    border-radius: 10px;
+    background-color: white;
+    width: 300px;
+    height: 50px;
+    padding-top:5px;
+
+}
+
+/* Ensure individual buttons keep consistent size and don't shift */
+.New_Group, .Reset_Button {
+    position: static; /* placed by their fixed parents */
+    min-width: 110px;
+    padding: 8px 12px;
+    display:block;
+    box-sizing: border-box;
+    border: 2px solid var(--button_outline_color);
+    border-radius: var(--button_radius);
+    padding: 0.75em 1.5em;
+    background: var(--button_color); 
+    color: var(--button_outline_color); 
+    transform: translateY(-0.2em); 
+    transition: transform 0.1s ease; 
+    color: black;
+  
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+Button { 
+    font-weight: bold;
+}
+
 
